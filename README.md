@@ -1,2 +1,2 @@
 # language-tagml
-Atom package for TAGML syntax highlighting
+Atom package for [TAGML](https://huygensing.github.io/TAG/TAGML/) syntax highlighting

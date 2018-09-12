@@ -1,5 +1,5 @@
-scopeName: 'text.tagml'
 name: 'TAGML'
+scopeName: 'text.tagml'
 fileTypes: [ 'tagml', 'tag' ]
 limitLineLength: false
 
