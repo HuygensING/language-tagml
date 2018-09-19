@@ -19,5 +19,14 @@ patterns: [
     name: 'set.open.tagml'
     match: '\\[!--.*--]'
   },
-
+  {
+    comment: 'markup start tag'
+    name: 'markup.start.tagml'
+    match: '\\[.*?>'
+  },
+  {
+    comment: 'markup end tag'
+    name: 'markup.end.tagml'
+    match: '<.*?]'
+  }
 ]

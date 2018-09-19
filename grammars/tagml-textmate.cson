@@ -1,0 +1,52 @@
+name: 'TAGML'
+scopeName: 'text.tagml'
+fileTypes: [ 'tagml', 'tag' ]
+limitLineLength: false
+
+patterns: [
+  {
+    comment: 'namespace'
+    name: 'namespace.tagml'
+    match: '\\[!ns [^]]+]'
+  },
+  {
+    comment: 'comment'
+    name: 'comment.tagml'
+    match: '\\[!--.*--]'
+  },
+  {
+    comment: 'set.open'
+    name: 'set.open.tagml'
+    match: '<\\|'
+  },
+  {
+    comment: 'set.close'
+    name: 'set.close.tagml'
+    match: '\\|>'
+  },
+  {
+    name: 'set.divider.tagml'
+    match: '\\|'
+  },
+  {
+    comment: 'markup start tag'
+    name: 'entity.markup.start.tagml'
+    match: '\\[([a-zA-Z0-9]+)>'
+    captures:
+      1:
+        name: 'entity.name.tag.tagml'
+  },
+  {
+    comment: 'markup end tag'
+    name: 'entity.markup.end.tagml'
+    match: '<([a-zA-Z0-9]+)]'
+    captures:
+      1:
+        name: 'entity.name.tag.tagml'
+  }
+
+]
+
+comments:
+    start: '[!--'
+    end: '--]'
