@@ -1,7 +1,8 @@
 name: 'TAGML'
 scopeName: 'text.tagml'
+#type: 'tree-sitter'
+#parser: 'tree-sitter-tagml'
 fileTypes: [ 'tagml', 'tag' ]
-limitLineLength: false
 
 patterns: [
   {
@@ -12,12 +13,59 @@ patterns: [
   {
     comment: 'comment'
     name: 'comment.tagml'
-    match: '\\[!--.*--]'
+    begin: '\\[!--'
+    end: '--]'
   },
   {
     comment: 'set.open'
     name: 'set.open.tagml'
-    match: '\\[!--.*--]'
+    match: '<\\|'
+  },
+  {
+    comment: 'set.close'
+    name: 'set.closer.tagml'
+    match: '\\|>'
+  },
+  {
+    comment: 'set.divider'
+    name: 'set.divider.tagml'
+    match: '\\|'
+  },
+  {
+    comment: 'markup start tag'
+    name: 'markup.start.tagml'
+    match: '\\[([a-zA-Z0-9_]+)(\\|)?([\\+,a-zA-Z0-9]+)?>'
+    captures:
+      1:
+        name: 'name.tagml'
+      2:
+        name: 'layer.divider.tagml'
+      3:
+        name: 'layer.name.tagml'
+  },
+  {
+    comment: 'markup milestone tag'
+    name: 'markup.start.tagml'
+    match: '\\[([a-zA-Z0-9_]+)(\\|)?([\\+,a-zA-Z0-9]+)?\\]'
+    captures:
+      1:
+        name: 'name.tagml'
+      2:
+        name: 'layer.divider.tagml'
+      3:
+        name: 'layer.name.tagml'
+  },
+  {
+    comment: 'markup end tag'
+    name: 'markup.end.tagml'
+    match: '<([a-zA-Z0-9_]+)(\\|)?([\\+,a-zA-Z0-9]+)?\\]'
+    captures:
+      1:
+        name: 'name.tagml'
+      2:
+        name: 'layer.divider.tagml'
+      3:
+        name: 'layer.name.tagml'
   },
 
 ]

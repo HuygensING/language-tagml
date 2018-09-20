@@ -1,0 +1,35 @@
+[!-- comments --]
+[!-- comments
+can
+contain
+multiple
+lines
+--]
+
+[!-- namespace --]
+[!ns tag http://tag.di.huc.knaw.nl/ns/tag]
+
+[!-- simple start/end tags --]
+[tag>some text<tag]
+
+[!-- add layers --]
+[tag|+A>some text<tag|A]
+
+[!-- milestone tag --]
+[x|A>This is a [milestone|A] tag<x]
+
+[!-- non-linearity --]
+Progamming is <|[del>frustrating<del]|[add>rewarding<add]|>
+
+
+[!-- example tagml --]
+[TAGML|+M,+N>
+[text|M,N>
+[l|M>
+[s|N>Une [del|M>[add|M>jolie<add]<del][add|M>belle<add] main de femme, élégante et fine.<l]<s] [l|M>[s|N>Malgré l'agrandissement du close-up.
+<s]
+<l]
+<|bla|bla|>
+[xxx a=1 b="BBB" c='CCC' d=true e=false>text<xxx]
+<text]<TAGML]
+{zzz111}
