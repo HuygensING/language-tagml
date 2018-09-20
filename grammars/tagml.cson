@@ -18,54 +18,54 @@ patterns: [
   },
   {
     comment: 'set.open'
-    name: 'keyword.control'
+    name: 'keyword.other.special-method'
     match: '<\\|'
   },
   {
     comment: 'set.close'
-    name: 'keyword.control'
+    name: 'keyword.other.special-method'
     match: '\\|>'
   },
   {
     comment: 'set.divider'
-    name: 'keyword.control'
+    name: 'keyword.other.special-method'
     match: '\\|'
   },
   {
     comment: 'markup start tag'
-    name: 'keyword'
+    name: 'keyword.other.unit'
     match: '\\[([a-zA-Z0-9_]+)(\\|)?([\\+,a-zA-Z0-9]+)?>'
     captures:
       1:
-        name: 'entity.name.type'
+        name: 'variable'
       2:
-        name: 'keyword'
+        name: 'keyword.other.unit'
       3:
-        name: 'entity.other.inherited-class'
+        name: 'variable.interpolation'
   },
   {
     comment: 'markup milestone tag'
-    name: 'keyword'
+    name: 'keyword.other.unit'
     match: '\\[([a-zA-Z0-9_]+)(\\|)?([\\+,a-zA-Z0-9]+)?\\]'
     captures:
       1:
-        name: 'entity.name.type'
+        name: 'variable'
       2:
-        name: 'keyword'
+        name: 'keyword.other.unit'
       3:
-        name: 'entity.other.inherited-class'
+        name: 'variable.interpolation'
   },
   {
     comment: 'markup end tag'
-    name: 'syntax.keyword.tagml'
+    name: 'keyword.other.unit'
     match: '<([a-zA-Z0-9_]+)(\\|)?([\\+,a-zA-Z0-9]+)?\\]'
     captures:
       1:
-        name: 'entity.name.type'
+        name: 'variable'
       2:
-        name: 'keyword'
+        name: 'keyword.other.unit'
       3:
-        name: 'entity.other.inherited-class'
+        name: 'variable.interpolation'
   },
 
 ]
