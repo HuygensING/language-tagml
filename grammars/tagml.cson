@@ -7,65 +7,69 @@ fileTypes: [ 'tagml', 'tag' ]
 patterns: [
   {
     comment: 'namespace'
-    name: 'namespace.tagml'
+    name: 'markup.link'
     match: '\\[!ns [^]]+]'
   },
   {
     comment: 'comment'
-    name: 'comment.tagml'
+    name: 'comment'
     begin: '\\[!--'
     end: '--]'
   },
   {
     comment: 'set.open'
-    name: 'set.open.tagml'
+    name: 'keyword.control'
     match: '<\\|'
   },
   {
     comment: 'set.close'
-    name: 'set.closer.tagml'
+    name: 'keyword.control'
     match: '\\|>'
   },
   {
     comment: 'set.divider'
-    name: 'set.divider.tagml'
+    name: 'keyword.control'
     match: '\\|'
   },
   {
     comment: 'markup start tag'
-    name: 'markup.start.tagml'
+    name: 'keyword'
     match: '\\[([a-zA-Z0-9_]+)(\\|)?([\\+,a-zA-Z0-9]+)?>'
     captures:
       1:
-        name: 'name.tagml'
+        name: 'entity.name.type'
       2:
-        name: 'layer.divider.tagml'
+        name: 'keyword'
       3:
-        name: 'layer.name.tagml'
+        name: 'entity.other.inherited-class'
   },
   {
     comment: 'markup milestone tag'
-    name: 'markup.start.tagml'
+    name: 'keyword'
     match: '\\[([a-zA-Z0-9_]+)(\\|)?([\\+,a-zA-Z0-9]+)?\\]'
     captures:
       1:
-        name: 'name.tagml'
+        name: 'entity.name.type'
       2:
-        name: 'layer.divider.tagml'
+        name: 'keyword'
       3:
-        name: 'layer.name.tagml'
+        name: 'entity.other.inherited-class'
   },
   {
     comment: 'markup end tag'
-    name: 'markup.end.tagml'
+    name: 'syntax.keyword.tagml'
     match: '<([a-zA-Z0-9_]+)(\\|)?([\\+,a-zA-Z0-9]+)?\\]'
     captures:
       1:
-        name: 'name.tagml'
+        name: 'entity.name.type'
       2:
-        name: 'layer.divider.tagml'
+        name: 'keyword'
       3:
-        name: 'layer.name.tagml'
+        name: 'entity.other.inherited-class'
   },
 
+]
+
+folds: [
+  type: 'comment'
 ]
