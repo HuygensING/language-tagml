@@ -1,0 +1,55 @@
+[!-- comments --]
+[!-- comments
+can
+contain
+multiple
+lines
+--]
+
+[!-- namespace --]
+[!ns tag http://tag.di.huc.knaw.nl/ns/tag]
+
+[!-- simple start/end tags --]
+[tag>some text<tag]
+
+[!-- add layers --]
+[tag|+A>some text<tag|A]
+
+[!-- milestone tag --]
+[x|A>This is a [milestone|A] tag<x]
+
+[!-- markup annotations: boolean --]
+[tag b=true]
+
+[!-- markup annotations: number --]
+[tag pi=3.14]
+
+[!-- markup annotations: single-quoted string --]
+[tag s1='string']
+
+[!-- markup annotations: double-quoted string --]
+[tag s2="string"]
+
+[!-- markup annotations: list --]
+[tag odd=[1,3,5,7,9]]
+
+[!-- markup annotations: map --]
+[tag map={a=1 b=false c='something'}]
+
+[!-- markup annotations: map, formatted over several lines--]
+[tag map={a=1
+          b=false
+          c='something'}]
+
+[!-- non-linearity --]
+Programming is <|[del>frustrating<del]|[add>rewarding<add]|>
+
+
+[!-- example tagml --]
+[TAGML|+M,+N>
+[text|M,N>
+[l|M>
+[s|N>Une [del|M>[add|M>jolie<add]<del][add|M>belle<add] main de femme, élégante et fine.<l]<s] [l|M>[s|N>Malgré l'agrandissement du close-up.
+<s]
+<l]
+<text]<TAGML]
