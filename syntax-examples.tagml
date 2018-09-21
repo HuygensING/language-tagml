@@ -44,6 +44,11 @@ lines
 [!-- non-linearity --]
 Programming is <|[del>frustrating<del]|[add>rewarding<add]|>
 
+[!-- escaped characters in main text --]
+[t>These characters need to be escaped: \\< \\[ \\| \\! \\' \\" \\\\<t]
+
+[!-- escaped characters in string annotation --]
+[t s="It read: \"NO ENTRY\" on the door.">some text<t]
 
 [!-- example tagml --]
 [TAGML|+M,+N>
