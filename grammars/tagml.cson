@@ -1,74 +1,91 @@
 name: 'TAGML'
 scopeName: 'text.tagml'
-#type: 'tree-sitter'
-#parser: 'tree-sitter-tagml'
+type: 'tree-sitter'
+parser: 'tree-sitter-tagml'
 fileTypes: [ 'tagml', 'tag' ]
 
-patterns: [
-  {
-    comment: 'namespace'
-    name: 'markup.link'
-    match: '\\[!ns [^]]+]'
-  },
-  {
-    comment: 'comment'
-    name: 'comment'
-    begin: '\\[!--'
-    end: '--]'
-  },
-  {
-    comment: 'set.open'
-    name: 'keyword.other.special-method'
-    match: '<\\|'
-  },
-  {
-    comment: 'set.close'
-    name: 'keyword.other.special-method'
-    match: '\\|>'
-  },
-  {
-    comment: 'set.divider'
-    name: 'keyword.other.special-method'
-    match: '\\|'
-  },
-  {
-    comment: 'markup start tag'
-    name: 'keyword.other.unit'
-    match: '\\[([a-zA-Z0-9_]+)(\\|)?([\\+,a-zA-Z0-9]+)?>'
-    captures:
-      1:
-        name: 'variable'
-      2:
-        name: 'keyword.other.unit'
-      3:
-        name: 'variable.interpolation'
-  },
-  {
-    comment: 'markup milestone tag'
-    name: 'keyword.other.unit'
-    match: '\\[([a-zA-Z0-9_]+)(\\|)?([\\+,a-zA-Z0-9]+)?\\]'
-    captures:
-      1:
-        name: 'variable'
-      2:
-        name: 'keyword.other.unit'
-      3:
-        name: 'variable.interpolation'
-  },
-  {
-    comment: 'markup end tag'
-    name: 'keyword.other.unit'
-    match: '<([a-zA-Z0-9_]+)(\\|)?([\\+,a-zA-Z0-9]+)?\\]'
-    captures:
-      1:
-        name: 'variable'
-      2:
-        name: 'keyword.other.unit'
-      3:
-        name: 'variable.interpolation'
-  },
+scopes:
+  '''
+    start_tag > name,
+    end_tag > name
+    milestone_tag > name
+  ''' : 'variable'
 
-]
+  '''
+    "\\",
+    "\'",
+    '\"',
+    "\|",
+    "\!",
+    "\[",
+    "\<"
+  ''': 'keyword.operator'
+
+# patterns: [
+#   {
+#     comment: 'namespace'
+#     name: 'markup.link'
+#     match: '\\[!ns [^]]+]'
+#   },
+#   {
+#     comment: 'comment'
+#     name: 'comment'
+#     begin: '\\[!--'
+#     end: '--]'
+#   },
+#   {
+#     comment: 'set.open'
+#     name: 'keyword.other.special-method'
+#     match: '<\\|'
+#   },
+#   {
+#     comment: 'set.close'
+#     name: 'keyword.other.special-method'
+#     match: '\\|>'
+#   },
+#   {
+#     comment: 'set.divider'
+#     name: 'keyword.other.special-method'
+#     match: '\\|'
+#   },
+#   {
+#     comment: 'markup start tag'
+#     name: 'keyword.other.unit'
+#     match: '\\[([a-zA-Z0-9_]+)(\\|)?([\\+,a-zA-Z0-9]+)?>'
+#     captures:
+#       1:
+#         name: 'variable'
+#       2:
+#         name: 'keyword.other.unit'
+#       3:
+#         name: 'variable.interpolation'
+#   },
+#   {
+#     comment: 'markup milestone tag'
+#     name: 'keyword.other.unit'
+#     match: '\\[([a-zA-Z0-9_]+)(\\|)?([\\+,a-zA-Z0-9]+)?\\]'
+#     captures:
+#       1:
+#         name: 'variable'
+#       2:
+#         name: 'keyword.other.unit'
+#       3:
+#         name: 'variable.interpolation'
+#   },
+#   {
+#     comment: 'markup end tag'
+#     name: 'keyword.other.unit'
+#     match: '<([a-zA-Z0-9_]+)(\\|)?([\\+,a-zA-Z0-9]+)?\\]'
+#     captures:
+#       1:
+#         name: 'variable'
+#       2:
+#         name: 'keyword.other.unit'
+#       3:
+#         name: 'variable.interpolation'
+#   },
+#
+# ]
 
 folds: [
   type: 'comment'
