@@ -4,23 +4,6 @@ type: 'tree-sitter'
 parser: 'tree-sitter-tagml'
 fileTypes: [ 'tagml', 'tag' ]
 
-scopes:
-  '''
-    start_tag > name,
-    end_tag > name
-    milestone_tag > name
-  ''' : 'variable'
-
-  '''
-    "\\",
-    "\'",
-    '\"',
-    "\|",
-    "\!",
-    "\[",
-    "\<"
-  ''': 'keyword.operator'
-
 # patterns: [
 #   {
 #     comment: 'namespace'
@@ -87,6 +70,27 @@ scopes:
 #
 # ]
 
-folds: [
-  type: 'comment'
-]
+comments:
+    start: '[!--'
+    end: '--]'
+
+# folds: [
+#   type: 'comment'
+# ]
+
+scopes:
+  '''
+    start_tag > name,
+    end_tag > name,
+    milestone_tag > name
+  ''': 'variable'
+  '''
+    "\\\\",
+    "\\'",
+    '\\"',
+    "\\|",
+    "\\!",
+    "\\[",
+    "\\<"
+  ''': 'keyword.operator'
+  'comment'  : 'comment.block.tagml'
