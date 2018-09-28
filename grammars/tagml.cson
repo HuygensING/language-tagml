@@ -74,23 +74,19 @@ comments:
     start: '[!--'
     end: '--]'
 
-# folds: [
-#   type: 'comment'
-# ]
+folds: [
+   type: 'comment'
+]
 
 scopes:
-  '''
-    start_tag > name,
-    end_tag > name,
-    milestone_tag > name
-  ''': 'variable'
-  '''
-    "\\\\",
-    "\\'",
-    '\\"',
-    "\\|",
-    "\\!",
-    "\\[",
-    "\\<"
-  ''': 'keyword.operator'
+  'start_tag > name': 'variable'
+  'end_tag > name': 'variable'
+  'milestone_tag > name': 'variable'
+  '"\\\\"': 'keyword.operator'
+  '"\\'"': 'keyword.operator'
+  '"\\\""': 'keyword.operator'
+  '"\\|"': 'keyword.operator'
+  '"\\!"': 'keyword.operator'
+  '"\\["': 'keyword.operator'
+  '"\\<"': 'keyword.operator'
   'comment'  : 'comment.block.tagml'
