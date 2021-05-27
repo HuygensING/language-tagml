@@ -6,7 +6,7 @@
     "atom": "*"
   },
   "dependencies": {
-    "tree-sitter-tagml": "^0.0.1"
+    "tree-sitter-tagml": "^0.0.2"
   },
   "repository": {
     "type": "git",
